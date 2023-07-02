@@ -46,7 +46,7 @@ namespace Assets.Script.Gallery
         }
 
         /// <summary>
-        /// Also save image when successful download
+        /// Сохраняет при успешной загрузке картинку в хранилище
         /// </summary>
         /// <param name="MediaUrl"></param>
         /// <returns></returns>

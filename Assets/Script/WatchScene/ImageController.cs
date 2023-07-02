@@ -1,13 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
+using Assets.Script;
+using Assets.Script.Gallery;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ImageScaler : MonoBehaviour
+public class ImageController : MonoBehaviour
 {
     [SerializeField] private Image _image;
-    
+
+    private void Awake()
+    {
+        int num = FindAnyObjectByType<MessageBox>().ImageNum;
+        Debug.Log($"Trying get {num}");
+        _image.sprite = GalleryStorage.Instance.GetSprite(num);
+    }
+
     void Update()
     {
         ScaleImage();

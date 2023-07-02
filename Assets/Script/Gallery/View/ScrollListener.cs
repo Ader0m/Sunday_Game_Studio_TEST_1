@@ -11,13 +11,7 @@ namespace Assets.Script.Gallery
     public class ScrollListener : MonoBehaviour
     {
         [SerializeField] private GridLayoutGroup _gridLayoutGroup;
-        [SerializeField] private Scrollbar _scrollBar;
         [SerializeField] private SceneController _sceneController;
-
-        private void OnEnable()
-        {
-            _scrollBar.onValueChanged.AddListener(OnScroll);
-        }
 
         public void OnScroll(float value)
         {
@@ -25,11 +19,6 @@ namespace Assets.Script.Gallery
             {
                 _sceneController.ViewController.ShowPicture(_gridLayoutGroup.transform.childCount + 1);
             }
-        }
-
-        private void OnDisable()
-        {
-            _scrollBar.onValueChanged.RemoveListener(OnScroll);
         }
     }
 }

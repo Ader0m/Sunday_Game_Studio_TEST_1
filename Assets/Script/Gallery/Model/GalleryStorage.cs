@@ -25,10 +25,7 @@ namespace Assets.Script.Gallery
 
         public GalleryStorage()
         {
-            if (Sprites == null)
-            {
-                Sprites = new();
-            }
+            Sprites = new();           
             _instance = this;
         }
 

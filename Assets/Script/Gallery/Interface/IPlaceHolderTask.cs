@@ -8,6 +8,7 @@ namespace Assets.Script.Gallery
 {
     public interface IPlaceHolderTask
     {
-        public void Task(int imgNum);
+        public void SetImgNum(int imgNum);
+        public void SetTask(int imgNum);
     }
 }

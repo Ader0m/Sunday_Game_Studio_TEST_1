@@ -30,15 +30,15 @@ namespace Assets.Script.Gallery
         {
             Orientation.OrientationFree(false);
 
-            DownloadController = GetComponent<DownloadController>();
-            ViewPictures = GetComponentInChildren<ViewPictures>();
+            DownloadController = GetComponent<IDownloadController>();
+            ViewPictures = GetComponentInChildren<IViewPictures>();
             ViewController = new ViewController(ViewPictures, DownloadController);
             if (GalleryStorage.Instance == null) 
                 GalleryStor = new GalleryStorage();
             else
                 GalleryStor = GalleryStorage.Instance;
 
-            ViewLoadBar = GetComponentInChildren<ViewLoadingBar>();
+            ViewLoadBar = GetComponentInChildren<IViewLoadingBar>();
             ViewLoadController = new ViewLoadingController(this);
             LoadingStorage = new LoadingStorage();
         }
@@ -47,11 +47,7 @@ namespace Assets.Script.Gallery
         {
             _galleryCanvas.SetActive(false);
 
-            DownloadController.SafetyLoadPicture(3);
-            DownloadController.SafetyLoadPicture(4);
             ViewLoadController.StartLoading();
-        }
-
-        
+        }       
     }
 }

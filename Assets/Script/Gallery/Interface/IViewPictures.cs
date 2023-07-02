@@ -4,7 +4,7 @@ namespace Assets.Script.Gallery
 {
     public interface IViewPictures
     {
-        public void AddPicture(Sprite sprite);
+        public void AddPicture(int imgNum);
 
         public void AddPlaceHolder();
 

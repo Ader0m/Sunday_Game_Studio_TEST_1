@@ -19,18 +19,16 @@ namespace Assets.Script.Gallery
 
         public void ShowPicture(int i)
         {
-            Debug.Log($"ShowPicture {i}");
-
             if (!GalleryStorage.Instance.alsoDownload.Contains(i))
             {
                 _loadController.LoadPicture(i);
                 GalleryStorage.Instance.alsoDownload.Add(i);
-                _viewPictures.AddPlaceHolderWithTask(i);
-                Debug.Log($"Load {i} picture");
+                _viewPictures.AddPlaceHolderWithTask(i - 1);
+                Debug.Log($"Start Load {i} picture");
             }            
             else
             {
-                _viewPictures.AddPicture(GalleryStorage.Instance.GetSprite(i - 1));
+                _viewPictures.AddPicture(i - 1);
                 Debug.Log($"Use storaged {i} picture");
             }
         }

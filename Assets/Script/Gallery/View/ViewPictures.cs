@@ -13,18 +13,23 @@ namespace Assets.Script.Gallery
         private List<GameObject> _images;
         private List<GameObject> _places;
 
-        public void Awake()
+        private void Awake()
         {
             _images = new();
             _places = new();
         }
 
-        public void AddPicture(Sprite sprite)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="imgNum"> номер от 0 </param>
+        public void AddPicture(int imgNum)
         {
             if (_places.Count == 0)
                 AddPlaceHolder();
 
-            _places[0].GetComponent<Image>().sprite = sprite;
+            _places[0].GetComponent<Image>().sprite = GalleryStorage.Instance.GetSprite(imgNum);
+            _places[0].GetComponent<IPlaceHolderTask>().SetImgNum(imgNum);
             _images.Add(_places[0]);
             _places.Remove(_places[0]);
         }
@@ -35,10 +40,14 @@ namespace Assets.Script.Gallery
             _places.Add(obj);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="imgNum"> номер от 0 </param>
         public void AddPlaceHolderWithTask(int imgNum)
         {
             GameObject obj = Instantiate(_imagePrefab, _gridLayoutGroup.transform);
-            obj.GetComponent<IPlaceHolderTask>().Task(imgNum);
+            obj.GetComponent<IPlaceHolderTask>().SetTask(imgNum);
             _images.Add(obj);
         }
     }

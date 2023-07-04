@@ -25,7 +25,7 @@ namespace Assets.Script.Gallery._Loading
         }
 
         private void LoadFirstPictures()
-        {            
+        {
             _sceneController.ViewController.ShowPicture(1);
             LoadingStorage.Instance.SetProgress(0.2f);
             _sceneController.ViewController.ShowPicture(2);

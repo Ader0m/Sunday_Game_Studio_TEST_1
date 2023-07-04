@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-namespace Assets.Script.Gallery
+﻿namespace Assets.Script.Gallery
 {
     public interface IViewPictures
     {

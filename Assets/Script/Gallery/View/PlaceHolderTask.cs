@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
@@ -14,16 +9,15 @@ namespace Assets.Script.Gallery
     public class PlaceHolderTask : MonoBehaviour, IPlaceHolderTask
     {
         [SerializeField] private Image _image;
+        [SerializeField] private TextMeshProUGUI _text;
         [SerializeField] private int _imgNum;
 
         private void Awake()
         {
             _image = GetComponent<Image>();
+            _text = GetComponentInChildren<TextMeshProUGUI>();
         }
-        
-        /// <summary>
-        /// Номер начиная 0
-        /// </summary>
+
         public void SetImgNum(int imgNum)
         {
             _imgNum = imgNum;
@@ -35,21 +29,24 @@ namespace Assets.Script.Gallery
         /// <param name="imgNum"></param>
         public void SetTask(int imgNum)
         {
-            GalleryStorage.Instance.Sprites.CollectionChanged += OnLoad;
+            GalleryStorage.Instance.Notify += OnLoad;
             SetImgNum(imgNum);
         }
 
-        private void OnLoad(object sender, NotifyCollectionChangedEventArgs args)
+        private void OnLoad(int newImgNum)
         {
-            if (args.Action == NotifyCollectionChangedAction.Add)
+            if (_imgNum == newImgNum)
             {
                 try
                 {
                     Sprite sp = GalleryStorage.Instance.GetSprite(_imgNum);
                     _image.sprite = sp;
-                    GalleryStorage.Instance.Sprites.CollectionChanged -= OnLoad;
+                    GalleryStorage.Instance.Notify -= OnLoad;
                 }
-                catch { ; }
+                catch
+                {
+                    _text.text = GalleryStorage.Instance.GetError(_imgNum);
+                }
             }
         }
 
@@ -57,11 +54,11 @@ namespace Assets.Script.Gallery
         {
             PointerEventData eventData1 = eventData as PointerEventData;
 
-            if (eventData1.dragging == false) 
+            if (eventData1.dragging == false)
             {
                 FindAnyObjectByType<MessageBox>().ImageNum = _imgNum;
                 SceneManager.LoadScene(2);
-            }               
+            }
         }
     }
 }

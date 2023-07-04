@@ -11,14 +11,14 @@ namespace Assets.Script.Tools
                 Screen.autorotateToLandscapeLeft = true;
                 Screen.autorotateToLandscapeRight = true;
                 Screen.autorotateToPortraitUpsideDown = true;
-                Screen.autorotateToPortrait = true;                
+                Screen.autorotateToPortrait = true;
             }
             else
             {
                 Screen.autorotateToLandscapeLeft = false;
                 Screen.autorotateToLandscapeRight = false;
                 Screen.autorotateToPortraitUpsideDown = false;
-                Screen.autorotateToPortrait = true;                
+                Screen.autorotateToPortrait = true;
             }
         }
     }

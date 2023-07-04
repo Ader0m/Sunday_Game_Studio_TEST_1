@@ -1,9 +1,7 @@
-﻿using System.Collections.Specialized;
-
-namespace Assets.Script.Gallery
+﻿namespace Assets.Script.Gallery
 {
     public interface IGalleryViewController
     {
-        public void ShowPicture(int i);
+        public void ShowPicture(int imgNum);
     }
 }

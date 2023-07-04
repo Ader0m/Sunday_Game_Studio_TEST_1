@@ -1,8 +1,4 @@
-﻿using Assets.Script.Gallery;
-using System;
-using System.Collections.Generic;
-using System.Collections.Specialized;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Assets.Script.Gallery
 {
@@ -17,19 +13,18 @@ namespace Assets.Script.Gallery
             _loadController = loadController;
         }
 
-        public void ShowPicture(int i)
+        public void ShowPicture(int imgNum)
         {
-            if (!GalleryStorage.Instance.alsoDownload.Contains(i))
+            if (GalleryStorage.Instance.CheckDownloaded(imgNum))
             {
-                _loadController.LoadPicture(i);
-                GalleryStorage.Instance.alsoDownload.Add(i);
-                _viewPictures.AddPlaceHolderWithTask(i - 1);
-                Debug.Log($"Start Load {i} picture");
-            }            
+                _viewPictures.AddPicture(imgNum);
+                Debug.Log($"Use storaged {imgNum} picture");
+            }
             else
             {
-                _viewPictures.AddPicture(i - 1);
-                Debug.Log($"Use storaged {i} picture");
+                _loadController.SafetyLoadPicture(imgNum);
+                _viewPictures.AddPlaceHolderWithTask(imgNum);
+                Debug.Log($"Start Load {imgNum} picture");
             }
         }
     }

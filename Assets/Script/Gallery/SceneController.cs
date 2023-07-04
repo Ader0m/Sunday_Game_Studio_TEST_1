@@ -33,7 +33,7 @@ namespace Assets.Script.Gallery
             DownloadController = GetComponent<IDownloadController>();
             ViewPictures = GetComponentInChildren<IViewPictures>();
             ViewController = new ViewController(ViewPictures, DownloadController);
-            if (GalleryStorage.Instance == null) 
+            if (GalleryStorage.Instance == null)
                 GalleryStor = new GalleryStorage();
             else
                 GalleryStor = GalleryStorage.Instance;
@@ -48,6 +48,6 @@ namespace Assets.Script.Gallery
             _galleryCanvas.SetActive(false);
 
             ViewLoadController.StartLoading();
-        }       
+        }
     }
 }

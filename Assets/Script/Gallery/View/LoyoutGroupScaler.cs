@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,7 +9,13 @@ namespace Assets.Script.Gallery
         [SerializeField] private RectTransform _ScrolView;
         private float width;
         private float height;
+        /// <summary>
+        /// Значения подобраны руками
+        /// </summary>
         private int offsetX = 25;
+        /// <summary>
+        /// Значения подобраны руками
+        /// </summary>
         private int offsetY = 25;
 
         private void Awake()

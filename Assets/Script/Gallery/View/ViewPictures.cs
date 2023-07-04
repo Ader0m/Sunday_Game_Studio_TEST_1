@@ -4,6 +4,9 @@ using UnityEngine.UI;
 
 namespace Assets.Script.Gallery
 {
+    /// <summary>
+    /// Промежутожный скрипт между контроллером и картинкой. Создает и инициализирует обьекты картинок.
+    /// </summary>
     public class ViewPictures : MonoBehaviour, IViewPictures
     {
         [SerializeField] private GridLayoutGroup _gridLayoutGroup;
@@ -18,10 +21,6 @@ namespace Assets.Script.Gallery
             _places = new();
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="imgNum"> номер от 0 </param>
         public void AddPicture(int imgNum)
         {
             if (_places.Count == 0)
@@ -33,16 +32,12 @@ namespace Assets.Script.Gallery
             _places.Remove(_places[0]);
         }
 
-        public void AddPlaceHolder()
+        private void AddPlaceHolder()
         {
             GameObject obj = Instantiate(_imagePrefab, _gridLayoutGroup.transform);
             _places.Add(obj);
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="imgNum"> номер от 0 </param>
         public void AddPlaceHolderWithTask(int imgNum)
         {
             GameObject obj = Instantiate(_imagePrefab, _gridLayoutGroup.transform);

@@ -3,6 +3,9 @@ using UnityEngine.UI;
 
 namespace Assets.Script.Gallery
 {
+    /// <summary>
+    /// Растягивает content для работы скрола
+    /// </summary>
     public class AutoContentScaler : MonoBehaviour
     {
         [SerializeField] private RectTransform _content;

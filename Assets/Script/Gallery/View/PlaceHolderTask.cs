@@ -7,6 +7,11 @@ using Assets.Script.Tools;
 
 namespace Assets.Script.Gallery
 {
+    /// <summary>
+    /// Управление отображением на объекте самой картинки. 
+    /// Умеет ждать загрузки картинки, просматривая хранилище.
+    /// При нажатии загружает сцену просмотра картинки.
+    /// </summary>
     public class PlaceHolderTask : MonoBehaviour, IPlaceHolderTask
     {
         [SerializeField] private Image _image;

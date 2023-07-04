@@ -3,6 +3,9 @@ using UnityEngine.UI;
 
 namespace Assets.Script.Gallery
 {
+    /// <summary>
+    /// Устанавливает размер ячейки в зависимости от размера _ScrolView(телефона)
+    /// </summary>
     public class LoyoutGroupScaler : MonoBehaviour
     {
         [SerializeField] private GridLayoutGroup _gridLayoutGroup;

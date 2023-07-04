@@ -2,6 +2,9 @@
 
 namespace Assets.Script.Gallery
 {
+    /// <summary>
+    /// Запускает процессы отображения картинок.
+    /// </summary>
     public class ViewController : IGalleryViewController
     {
         private IViewPictures _viewPictures;

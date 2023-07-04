@@ -5,7 +5,7 @@ namespace Assets.Script.Gallery
 {
     /// <summary>
     /// Singltone. Класс реализует интерфейс хранилища картинок и хранилища ошибок.
-    /// Так же уведомляет при появлении новой картинки или ошибки.
+    /// Так же запускает эвент при появлении новой картинки или ошибки.
     /// </summary>
     public class GalleryStorage : IGalleryStorage, IErrorStorage
     {

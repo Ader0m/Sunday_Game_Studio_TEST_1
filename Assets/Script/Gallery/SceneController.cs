@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace Assets.Script.Gallery
 {
+    /// <summary>
+    /// Инициализирует сцену. Может быть использован для получения доступа к большинству объектов на сцене.
+    /// </summary>
     public class SceneController : MonoBehaviour
     {
         [SerializeField] private GameObject _galleryCanvas;

@@ -12,10 +12,6 @@ namespace Assets.Script.Gallery
         /// <summary>
         /// Значения подобраны руками
         /// </summary>
-        private int offsetX = 25;
-        /// <summary>
-        /// Значения подобраны руками
-        /// </summary>
         private int offsetY = 25;
 
         private void Awake()

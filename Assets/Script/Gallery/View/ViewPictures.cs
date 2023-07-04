@@ -5,7 +5,7 @@ using UnityEngine.UI;
 namespace Assets.Script.Gallery
 {
     /// <summary>
-    /// Промежутожный скрипт между контроллером и картинкой. Создает и инициализирует обьекты картинок.
+    /// Промежутожный скрипт между контроллером и картинкой. Создает и инициализирует обьекты картинок
     /// </summary>
     public class ViewPictures : MonoBehaviour, IViewPictures
     {
@@ -32,7 +32,7 @@ namespace Assets.Script.Gallery
             _places.Remove(_places[0]);
         }
 
-        private void AddPlaceHolder()
+        public void AddPlaceHolder()
         {
             GameObject obj = Instantiate(_imagePrefab, _gridLayoutGroup.transform);
             _places.Add(obj);

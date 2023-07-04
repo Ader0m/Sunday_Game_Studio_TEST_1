@@ -1,9 +1,9 @@
-﻿using TMPro;
+﻿using Assets.Script.Tools;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using Assets.Script.Tools;
 
 namespace Assets.Script.Gallery
 {

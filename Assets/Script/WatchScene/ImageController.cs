@@ -1,8 +1,7 @@
-using Assets.Script;
 using Assets.Script.Gallery;
+using Assets.Script.Tools;
 using UnityEngine;
 using UnityEngine.UI;
-using Assets.Script.Tools;
 
 public class ImageController : MonoBehaviour
 {
